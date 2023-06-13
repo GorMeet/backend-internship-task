@@ -4,12 +4,13 @@ from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import (AuthTokenSerializer,
                                                   serializers)
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.views import APIView, status
 from rest_framework.viewsets import ModelViewSet
 
 from .models import User
+from .permissions import IsManagerOrAdmin
 from .serializers import RegisterSerializer, UserSerializer
 
 
@@ -62,4 +63,6 @@ class LoginView(ObtainAuthToken):
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [IsAuthenticated, IsManagerOrAdmin]
+
+    
