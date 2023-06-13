@@ -19,9 +19,11 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from accounts.views import UserViewSet
+from calories.views import CaloriesViewSet
 
 router = DefaultRouter()
 router.register('user', UserViewSet, basename='user')
+router.register('calories', CaloriesViewSet, basename='calories')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
