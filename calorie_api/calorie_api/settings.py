@@ -146,3 +146,9 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
     ],
 }
+
+# NUTRITIONX API
+
+NUTRITIONX_API_BASE = "https://trackapi.nutritionix.com/v2/natural/nutrients"
+NUTRITIONX_API_APP_ID = env("NUTRITIONX_API_APP_ID")
+NUTRITIONX_API_KEY = env("NUTRITIONX_API_KEY")

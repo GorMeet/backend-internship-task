@@ -4,7 +4,11 @@ from .models import Calories
 
 
 class CalorieSerializer(serializers.ModelSerializer):
-     class Meta:
-         model = Calories
-         fields = ["id", "created_at", "item", "calories", "user", "is_extra"]
-         read_only_fields = ["user",]
+    calories = serializers.IntegerField(required=False)
+
+    class Meta:
+        model = Calories
+        fields = ["id", "created_at", "item", "calories", "user", "is_extra"]
+        read_only_fields = [
+            "user",
+        ]
